@@ -149,9 +149,9 @@ const WORD_LIST=[
   {en:'green',ja:'緑'},{en:'blue',ja:'青'},{en:'yellow',ja:'黄色'},
   {en:'black',ja:'黒'},{en:'white',ja:'白'},{en:'print',ja:'印刷'},
   {en:'write',ja:'書く'},{en:'sound',ja:'音'},{en:'True',ja:'真'},
-  {en:'False',ja:'偽'},{en:'pass',ja:'過ぎ去る'}、
-  {en:'_',ja:'アンダーバー'},{en:'.',ja:'ドット・ピリオド'},{en:',',ja:'コンマ'},
-  {en:':',ja:'コロン'},{en:'/',ja:'スラッシュ'},{en:'*',ja:'アスタリスク'}
+  {en:'False',ja:'偽'},{en:'pass',ja:'過ぎ去る'},
+  {en:'.',ja:'ドット'},{en:',',ja:'コンマ'},{en:'_',ja:'アンダーバー'},
+  {en:':',ja:'コロン'}
 ];
 const MODE_DESCS={
   work:'📖 ワーク：アルファベット順・時間制限なし・全問',
@@ -231,7 +231,7 @@ function showQuestion(){
 
   const typeLabels={
     upper:cfg.input==='tap'?'大文字が表示 → 小文字をえらぼう':'このアルファベットを入力しよう',
-    lower:cfg.input==='tap'?'大文字が表示 → 小文字をえらぼう':'小文字を入力しよう',
+    lower:cfg.input==='tap'?'大文字が表示 → 小文字をえらぼう':'このアルファベットを入力しよう',
     meaning:'意味から英単語を答えよう'
   };
   document.getElementById('q-type-label').textContent=typeLabels[q.type]||'';
