@@ -250,13 +250,24 @@ function showQuestion(){
 
   clearInterval(timerInterval);
   // 入力モードは文字数×係数で時間を計算
-  if(cfg.input==='type'&&cfg.mode!=='work'){
-    const charCount=q.answer.length;
-    maxTime=cfg.mode==='soft'?charCount*1.0:charCount*0.5;
-    maxTime=Math.round(maxTime*10)/10;
-  }else{
-    maxTime=TIMER_SECS[cfg.mode];
-  }
+  if(cfg.mode!=='work'){
+    if(q.type==='meaning'&&cfg.input==='tap'){
+        // 単語タップモードのみ文字数×係数
+        const charCount=q.answer.length;
+        maxTime=cfg.mode==='soft'?charCount*1.0:charCount*0.5;
+        maxTime=Math.round(maxTime*10)/10;
+    }else if(cfg.input==='type'){
+        // 入力モードも文字数×係数
+        const charCount=q.answer.length;
+        maxTime=cfg.mode==='soft'?charCount*1.0:charCount*0.5;
+        maxTime=Math.round(maxTime*10)/10;
+    }else{
+        // 大文字・小文字タップは固定
+        maxTime=TIMER_SECS[cfg.mode];
+    }
+}else{
+    maxTime=0;
+}
   const timerDisp=document.getElementById('timer-disp');
   const timerBarWrap=document.getElementById('timer-bar-wrap');
   const timerBar=document.getElementById('timer-bar');
